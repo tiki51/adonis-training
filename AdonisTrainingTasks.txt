@@ -1,8 +1,0 @@
-1. update the posts controller to update a post
-2. add a migration to add a name to users
-3. update the user model and controller to include a name
-4. add a migration to add img link to posts
-5. update the post model and controller to include an optional image link
-6. add comments migration, model, and controller
-    columns: id, post, user, content
-7. seed the DB
