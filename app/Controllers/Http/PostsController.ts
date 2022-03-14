@@ -8,8 +8,7 @@ export default class PostsController {
     return posts
   }
 
-  public async show({ request, params }: HttpContextContract) {
-    console.log(request)
+  public async show({ params }: HttpContextContract) {
     try {
       const post = await Post.find(params.id)
       if (post) {

@@ -18,7 +18,6 @@ export default class AuthController {
     const newUser = new User()
     newUser.email = email
     newUser.password = password
-    newUser.name = name
     await newUser.save()
     const token = await auth.use('api').login(newUser, {
       expiresIn: '10 days',
