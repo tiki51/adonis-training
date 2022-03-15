@@ -21,24 +21,6 @@ export default class PostsController {
     }
   }
 
-  public async update({ auth, request, params }: HttpContextContract) {
-    await auth.authenticate()
-    const post = await Post.find(params.id)
-
-    if (post) {
-      post.title = request.input('title')
-      post.content = request.input('content')
-      if (await post.save()) {
-        await post.preload('user')
-        await post.preload('forum')
-        return post
-      }
-      return // 422
-    }
-
-    return // 401
-  }
-
   public async store({ auth, request }: HttpContextContract) {
     const user = await auth.authenticate()
     const post = new Post()
