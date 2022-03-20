@@ -28,6 +28,7 @@ export default class PostsController {
     post.title = request.input('title')
     post.content = request.input('content')
     post.forumId = request.input('forum')
+    post.image_link = request.input('image_link')
     await user.related('posts').save(post)
     return post
   }
@@ -39,6 +40,7 @@ export default class PostsController {
         post.title = request.input('title')
         post.content = request.input('content')
         post.forumId = request.input('forum')
+        post.image_link = request.input('image_link')
         await post.save()
       }
     } catch (error) {

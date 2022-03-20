@@ -15,6 +15,9 @@ export default class Post extends BaseModel {
   public content: string
 
   @column()
+  public image_link: string
+
+  @column()
   public forumId: number
 
   @column()

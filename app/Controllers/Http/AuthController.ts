@@ -14,9 +14,11 @@ export default class AuthController {
   public async register({ request, auth }: HttpContextContract) {
     const email = request.input('email')
     const password = request.input('password')
+    const name = request.input('name')
     const newUser = new User()
     newUser.email = email
     newUser.password = password
+    newUser.name = name
     await newUser.save()
     const token = await auth.use('api').login(newUser, {
       expiresIn: '10 days',
