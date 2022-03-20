@@ -31,5 +31,7 @@ Route.group(() => {
     Route.resource('forums', 'ForumsController').apiOnly()
     Route.get('users/forums', 'UsersController.forumsByUser')
     Route.get('users/posts', 'UsersController.postsByUser')
+    Route.get('users/:user_id', 'UsersController.show')
+    Route.put('users/:user_id', 'UsersController.update')
   }).middleware('auth:api')
 }).prefix('api')
