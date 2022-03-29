@@ -8,11 +8,12 @@ node ace serve --watch
 1. update the `posts` controller to update a `post`
 2. open a PR with the above changes
 3. add a migration to add a `name` to `users`
-4. update the `user` model and controller to include a `name`
-5. add a migration to add an optional `imageLink` to posts
-6. update the `post` model and controller to include an optional `imageLink`
-7. open a PR with the above changes
-8. add `comment` migration, model, and controller  
-    `columns: id, post, user, content`
-9. seed the DB
-10. open a PR with the above changes
+4. add show and update to users controller, add name to register method in authcontroller 
+5. update the `user` model and controller to include a `name`
+6. add a migration to add an optional `imageLink` to posts
+7. update the `post` model and controller to include an optional `imageLink`
+8. open a PR with the above changes
+9. add `comment` migration, model, and controller  
+    `columns: id, post_id, user_id, content`
+10. seed the DB
+11. open a PR with the above changes

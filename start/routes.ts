@@ -33,5 +33,6 @@ Route.group(() => {
     Route.get('users/posts', 'UsersController.postsByUser')
     Route.get('users/:user_id', 'UsersController.show')
     Route.put('users/:user_id', 'UsersController.update')
+    Route.resource('comments', 'CommentsController')
   }).middleware('auth:api')
 }).prefix('api')

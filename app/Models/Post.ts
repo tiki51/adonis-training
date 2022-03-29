@@ -2,7 +2,7 @@ import { DateTime } from 'luxon'
 import User from 'App/Models/User'
 import Forum from 'App/Models/Forum'
 
-import { BaseModel, column, belongsTo, BelongsTo } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, belongsTo, BelongsTo, hasMany } from '@ioc:Adonis/Lucid/Orm'
 
 export default class Post extends BaseModel {
   @column({ isPrimary: true })
@@ -36,4 +36,7 @@ export default class Post extends BaseModel {
   // Relationship
   @belongsTo(() => Forum)
   public forum: BelongsTo<typeof Forum>
+
+  @hasMany(() => Comment)
+  public comment: BelongsTo<typeof Comment>
 }
