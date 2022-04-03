@@ -6,8 +6,8 @@ export default class Comments extends BaseSchema {
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id').primary()
-      table.string('post').notNullable()
-      table.string('user').notNullable()
+      table.integer('post_id').notNullable()
+      table.integer('user_id').notNullable()
       table.string('content').notNullable()
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })

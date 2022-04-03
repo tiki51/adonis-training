@@ -3,7 +3,14 @@ import Comment from 'App/Models/Comment'
 
 export default class CommentsController {
   public async index({ request }: HttpContextContract) {
-    const comments = await Comment.query()
+    let comments
+    if (request.input('user_id')) {
+      comments = await Comment.query().where('user_id', request.input('user_id'))
+    } else if (request.input('post_id')) {
+      comments = await Comment.query().where('post_id', request.input('post_id'))
+    } else {
+      comments = await Comment.query()
+    }
     return comments
   }
 
@@ -14,7 +21,7 @@ export default class CommentsController {
         return comment
       }
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   }
 
@@ -42,12 +49,7 @@ export default class CommentsController {
     }
   }
 
-  public async destroy({
-    response,
-    auth,
-
-    params,
-  }: HttpContextContract) {
+  public async destroy({ response, auth, params }: HttpContextContract) {
     const user = await auth.authenticate()
     const comment = await Comment.query().where('user_id', user.id).where('id', params.id).delete()
     console.log(Comment)
