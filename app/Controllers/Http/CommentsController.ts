@@ -45,7 +45,7 @@ export default class CommentsController {
         await comment.save()
       }
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   }
 
